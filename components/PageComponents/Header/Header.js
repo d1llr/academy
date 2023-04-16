@@ -77,7 +77,7 @@ const Header = () => {
                     </Link>
                     <Link href='#login'>
                         <div className={styles.login_wrapper} onClick={() => showModal()}>
-                            <Image src={login} className={styles.login} alt="Логин" width={30} height={30} />
+                            <Image src={login} className={styles.login} alt="Логин"/>
                         </div>
                     </Link>
                     <>

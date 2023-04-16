@@ -3,7 +3,7 @@ import styles from './Teachers.module.scss'
 import { useRouter } from "next/router";
 import { useAppSelector } from "../../redux/store";
 import Image from "next/image";
-import actorIcon from '../../imgs/icons/actor_icon.png'
+import actorIcon from '../../public/imgs/icons/actor_icon.png'
 
 
 const Teacher: FC<any> = () => {

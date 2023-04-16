@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
-import { logotype, login, styles, aboutpng, disc, teachers, answers, callback } from './imports'
+import { styles, aboutpng, disc, teachers, answers, callback, logotype, login } from './imports'
 import { useEffect, useState } from "react";
 import { Button, Modal } from 'antd';
 const Header = () => {
@@ -75,9 +75,9 @@ const Header = () => {
                             <Image src={callback} alt="Обратный звонок" />
                         </button>
                     </Link>
-                    <Link href='#whatsapp'>
+                    <Link href='#login'>
                         <div className={styles.login_wrapper} onClick={() => showModal()}>
-                            <Image src={login} className={styles.login} alt="Логин" />
+                            <Image src={login} className={styles.login} alt="Логин" width={30} height={30} />
                         </div>
                     </Link>
                     <>

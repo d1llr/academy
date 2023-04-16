@@ -1,18 +1,18 @@
 import styles from './Footer.module.scss'
 import Image from 'next/image';
 
-import logotype from '../../../imgs/Header/logotypewhite.png'
-import phone from '../../../imgs/Footer/phone.png';
-import telegram from '../../../imgs/Footer/telegram.png'
-import whatsapp from '../../../imgs/Footer/whatsapp.png'
-import email from '../../../imgs/Footer/email.png'
-import adres from '../../../imgs/Footer/adres.png'
-import youtube from '../../../imgs/Footer/social/youtube.png'
-import vk from '../../../imgs/Footer/social/vk.png'
-import tiktok from '../../../imgs/Footer/social/tic-tok.png'
-import fr from '../../../imgs/Footer/social/fr.png'
-import rutube from '../../../imgs/Footer/social/rutube.png'
-import paykeeper from '../../../imgs/Footer/paykeeper.png';
+import logotype from '../../../public/imgs/Header/logotypewhite.png'
+import phone from '../../../public/imgs/Footer/phone.png';
+import telegram from '../../../public/imgs/Footer/telegram.png'
+import whatsapp from '../../../public/imgs/Footer/whatsapp.png'
+import email from '../../../public/imgs/Footer/email.png'
+import adres from '../../../public/imgs/Footer/adres.png'
+import youtube from '../../../public/imgs/Footer/social/youtube.png'
+import vk from '../../../public/imgs/Footer/social/vk.png'
+import tiktok from '../../../public/imgs/Footer/social/tic-tok.png'
+import fr from '../../../public/imgs/Footer/social/fr.png'
+import rutube from '../../../public/imgs/Footer/social/rutube.png'
+import paykeeper from '../../../public/imgs/Footer/paykeeper.png';
 
 
 

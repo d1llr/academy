@@ -1,7 +1,7 @@
 import H1 from '../../../UniversalComponents/H1/H1.tsx';
 import Slider from "../../../UniversalComponents/Slider/Slider.js";
 import styles from './Gallery.module.scss';
-import slide from '../../../../imgs/Slider/slide-1.jpg';
+import slide from '../../../../public/imgs/Slider/slide-1.jpg';
 import Image from "next/image";
 const Gallery = () => {
     return ( 

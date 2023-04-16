@@ -1,5 +1,5 @@
 import '../styles/global.scss';
-import Layout from '../components/PageComponents/Layout/layout';
+import Layout from '../components/PageComponents/Layout/Layout';
 import { Provider } from 'react-redux';
 import store, { useAppDispatch, useAppSelector, wrapper } from '../redux/store';
 import ModalFeedBack from '../components/UniversalComponents/ModalFeedBack/ModalFeedBack.tsx'

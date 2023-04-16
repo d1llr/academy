@@ -1,5 +1,4 @@
 .section {
-
     .mobileL {
         display: none;
         margin: 0 auto;
@@ -33,7 +32,8 @@
                 font-style: normal;
                 font-weight: 400;
                 line-height: 1.5em;
-                font-size: calc(1px + 1.7vw);
+                font-size: 21px;
+                // font-size: calc(1px + 1.7vw);
                 list-style-type: '—';
                 padding-left: 10px;
                 margin-left: 2.5em;
@@ -62,7 +62,8 @@
         video {
             width: 20em;
             height: 15em;
-            font-size: calc(1px + 2vw);
+            font-size: 21px;
+            // font-size: calc(1px + 2vw);
             border-radius: 2em;
             object-fit: cover;
         }

@@ -10,13 +10,15 @@ const Banner = () => {
     return (
         <section className={styles.banner_container}>
             <div className={styles.background_wrapper}>
-                <IntroBackGround width={'100vw'}/>
+                <div className={styles.IntroBackGround}>
+                    <IntroBackGround width={'100vw'} />
+                </div>
             </div>
             <h2>
                 Приходите на первое занятие
             </h2>
             <h1>бесплатно</h1>
-            <button onClick={()=>{dispatch(openModal(true))}}>
+            <button onClick={() => { dispatch(openModal(true)) }}>
                 записаться
             </button>
         </section>

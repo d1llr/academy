@@ -12,11 +12,11 @@
         margin-top: 40px;
         width: 100%;
         flex-direction: column;
-        font-size: calc(1px + 1vw);
         align-items: center;
         justify-content: center;
+        max-height: 450px;
         transition-duration: 300ms;
-        padding: 4em 15em;
+        padding: 50px 110px;
         box-shadow: 0px 15px 30px rgba(0, 0, 0, 0.15);
 
         &:hover {
@@ -24,8 +24,8 @@
         }
 
         .original_image {
-            width: 23em;
-            height: 13em;
+            width: 100%;
+            height: 200px;
         }
         .resize{
             width: 200px;
@@ -36,7 +36,7 @@
             font-family: 'Montserrat';
             font-style: normal;
             font-weight: 700;
-            font-size: calc(1px + 1.8vw);
+            font-size: 24px;
             text-align: center;
             margin-top: 1em;
             white-space: nowrap;
@@ -51,9 +51,8 @@
         width: 32% !important;
     }
     .large_card {
-        font-size: calc(1px + 1vw) !important;
-        padding: 4.5em !important;
         width: 100% !important;
+        padding: 50px !important;
         .original_image {
            display: none !important;
         }
@@ -63,6 +62,7 @@
         }
 
         .actor_span{
+            margin-top: 1em !important;
             font-size: 20px !important;
         }
     }
@@ -73,13 +73,14 @@
         width: 48% !important;
     }
     .large_card {
-        padding: 7em 2em 5em !important;
+        // padding: 7em 2em 5em !important;
+        padding: 50px !important;
         img {
-            width: 240px !important;
-            height: 240px !important;
+            width: 200px !important;
+            height: 200px !important;
         }
         .actor_span{
-            margin-top: 2em !important;
+            margin-top: 1em !important;
         }
     }
 }
@@ -91,8 +92,8 @@
     .large_card {
         .original_image {
             display: block !important;
-            width: 300px !important;
-            height: 170px !important;
+            width: 350px !important;
+            height: 200px !important;
         }
         .resize{
             display: none !important;

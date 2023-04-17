@@ -1,5 +1,8 @@
 .question_container {
     padding: 0 5em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     .h1 {
         margin: 0 auto;
         font-family: 'Montserrat';
@@ -7,7 +10,7 @@
         width: 100%;
         font-style: normal;
         font-weight: 700;
-        font-size: calc(2px + 4vw);
+        font-size: 50px;
         display: block;
         margin-top: 2.4em;
         margin-bottom: 1.7em;
@@ -16,6 +19,7 @@
     .question_wrapper {
         padding: 0 5em;
         transition: .5s all;
+        max-width: 1200px;
         .question_answer {
             border-bottom: 1px solid #939393;
             padding: 1em;
@@ -34,13 +38,13 @@
                     font-family: 'Montserrat';
                     font-style: normal;
                     font-weight: 400;
-                    font-size: 32px;
+                    font-size: 28px;
                 }
                 .gradientText{
                     font-family: 'Montserrat';
                     font-style: normal;
                     font-weight: 400;
-                    font-size: 32px;
+                    font-size: 28px;
                     background: linear-gradient(180deg, #A69249 0%, #5B4B32 100%);
                     -webkit-background-clip: text;
                     -webkit-text-fill-color: transparent;

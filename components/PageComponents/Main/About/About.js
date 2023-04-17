@@ -1,15 +1,13 @@
 import styles from './About.module.scss';
 import H1 from '../../../UniversalComponents/H1/H1.tsx';
 
-
-
-
 const About = () => {
     return (
         <section className={styles.section}>
             <H1 text='О нашей акакадемии' />
             <h1 className={styles.mobileL}>О нас</h1>
             <div className={styles.block}>
+
                 <video src='./about.MOV' controls></video>
                 <ul className={styles.text_wrapper}>
                     <li>

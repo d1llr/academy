@@ -7,6 +7,7 @@
     width: 100dvw;
     max-width: none;
     position: relative;
+
     .background_wrapper {
         position: absolute;
         width: 100%;
@@ -128,6 +129,19 @@
         button {
             margin-top: 5em !important;
             font-size: 16px !important;
+        }
+    }
+}
+
+
+@media(max-width: 540px) {
+    .background_wrapper {
+        background-image: url('../../../../public/imgs/main/custombackground.png');
+        background-repeat: no-repeat;
+        background-size: cover;
+
+        .IntroBackGround {
+            display: none;
         }
     }
 }

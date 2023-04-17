@@ -1,7 +1,7 @@
 
 import nodemailer from 'nodemailer'
 
-
+///qwdqdwqwdwqd
 
 const email = process.env.EMAIL
 const pass = process.env.EMAIL_PASS

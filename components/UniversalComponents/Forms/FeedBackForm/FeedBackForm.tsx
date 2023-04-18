@@ -5,7 +5,7 @@ import { useSendEmailMutation } from '../../../../redux/api/mailApi';
 
 
 type FormValues = {
-  firstName: string;
+  first_name: string;
   phone: string;
   description: string;
 };
@@ -13,10 +13,10 @@ type FormValues = {
 
 const resolver: Resolver<FormValues> = async (values) => {
   return {
-    values: values.firstName ? values : {},
-    errors: !values.firstName
+    values: values.first_name ? values : {},
+    errors: !values.first_name
       ? {
-        firstName: {
+        first_name: {
           type: 'required',
           message: 'This is required.',
         },
@@ -48,8 +48,8 @@ export default function App() {
       <span>
         и мы свяжемся с вами в ближайшее время
       </span>
-      <input {...register("firstName")} placeholder="Имя" />
-      {errors?.firstName && <p>{errors.firstName.message}</p>}
+      <input {...register("first_name")} placeholder="Имя" />
+      {errors?.first_name && <p>{errors.first_name.message}</p>}
 
       <input {...register("phone")} placeholder="Номер телефона" />
 

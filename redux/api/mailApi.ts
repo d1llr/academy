@@ -2,9 +2,9 @@ import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
 import { mailOptions, transporter } from "../../config/nodemailer";
 
 interface mail {
-    firstName: string,
+    first_name: string,
     phone: string,
-    comments: string
+    description: string
 }
 
 const BASEURL = process.env.BASEURL

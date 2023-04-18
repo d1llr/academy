@@ -1,12 +1,13 @@
 import React from 'react';
 import { useForm, Resolver } from 'react-hook-form';
 import styles from './styles.module.scss'
+import { useSendEmailMutation } from '../../../../redux/api/mailApi';
 
 
 type FormValues = {
   firstName: string;
   phone: string;
-  comments: string;
+  description: string;
 };
 
 
@@ -26,13 +27,18 @@ const resolver: Resolver<FormValues> = async (values) => {
 
 export default function App() {
   const { register, handleSubmit, formState: { errors } } = useForm<FormValues>({ resolver });
+  const [sendEmail] = useSendEmailMutation()
+  const onSubmit = handleSubmit(async (data: FormValues) => {
+    // fetch('/api/contacts', {
+    //   method: 'post',
+    //   body: JSON.stringify(data)
 
-  const onSubmit = handleSubmit(async (data:FormValues) => {
-    fetch('/api/contacts', {
-      method: 'post',
-      body: JSON.stringify(data)
-    });
-    
+    // });
+    sendEmail({
+      id:1,
+      data:data
+    })
+
   }
   );
 
@@ -47,7 +53,7 @@ export default function App() {
 
       <input {...register("phone")} placeholder="Номер телефона" />
 
-      <textarea {...register("comments")} placeholder="Комментарий" />
+      <textarea {...register("description")} placeholder="Комментарий" />
 
       <input type="submit" value={'Отправить'} />
     </form>

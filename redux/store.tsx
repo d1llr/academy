@@ -20,7 +20,7 @@ const makeStore = () =>
         [mailApi.reducerPath]: mailApi.reducer,
         [userApi.reducerPath] : userApi.reducer
     },
-    middleware: getDefaultMiddleware => getDefaultMiddleware().concat(userApi.middleware),
+    middleware: getDefaultMiddleware => getDefaultMiddleware().concat(userApi.middleware, mailApi.middleware),
     devTools: true,
   });
 

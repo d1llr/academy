@@ -8,7 +8,7 @@ import disciplinesSlice from './slices/disciplinesSlice';
 import modalSlice from './slices/modalSlice';
 import { mailApi } from './api/mailApi';
 import { userApi } from './api/userApi';
-
+import { setupListeners } from '@reduxjs/toolkit/dist/query';
 
 const makeStore = () =>
   configureStore({
@@ -18,14 +18,13 @@ const makeStore = () =>
         disciplines: disciplinesSlice,
         modal: modalSlice,
         [mailApi.reducerPath]: mailApi.reducer,
-        [userApi.reducerPath]: userApi.reducer
+        [userApi.reducerPath] : userApi.reducer
     },
-    middleware: getDefaultMiddleware => getDefaultMiddleware().concat(mailApi.middleware),
+    middleware: getDefaultMiddleware => getDefaultMiddleware().concat(userApi.middleware),
     devTools: true,
   });
 
 export const store = makeStore()
-
 
 
 export type RootStore = ReturnType<typeof makeStore>;

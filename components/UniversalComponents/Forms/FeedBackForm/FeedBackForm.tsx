@@ -1,7 +1,6 @@
 import React from 'react';
 import { useForm, Resolver } from 'react-hook-form';
 import styles from './styles.module.scss'
-import { useGetUserQuery } from '../../../../redux/api/userApi';
 
 
 type FormValues = {
@@ -11,7 +10,6 @@ type FormValues = {
 };
 
 
-useGetUserQuery
 const resolver: Resolver<FormValues> = async (values) => {
   return {
     values: values.firstName ? values : {},

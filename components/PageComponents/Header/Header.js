@@ -3,8 +3,8 @@ import Image from "next/image";
 import { styles, aboutpng, disc, teachers, answers, callback, logotype, login } from './imports'
 import { useEffect, useState } from "react";
 import { Button, Modal } from 'antd';
-import useGetUserQuery from '../../../redux/api/userApi'
 
+import { useGetUserQuery } from '../../../redux/api/userApi'
 const Header = () => {
     const [isModalOpen, setIsModalOpen] = useState(false);
     // useEffect(()=>{
@@ -31,11 +31,8 @@ const Header = () => {
     const handleCancel = () => {
         setIsModalOpen(false);
     };
-
-    const handleSubmit = () =>{
-        const {data, error, loading} = useGetUserQuery()
-        console.log(data);
-    }
+    const { data, error, isLoading } = useGetUserQuery()
+    console.log(data);
     return (
         <header className={styles.page_header}>
             <nav>
@@ -83,7 +80,7 @@ const Header = () => {
                     </Link>
                     <Link href='#login'>
                         <div className={styles.login_wrapper} onClick={() => showModal()}>
-                            <Image src={login} className={styles.login} alt="Логин"/>
+                            <Image src={login} className={styles.login} alt="Логин" />
                         </div>
                     </Link>
                     <>
@@ -95,14 +92,15 @@ const Header = () => {
                             footer={null}
                             con={styles.modal_container}
                         >
-                           <h1>Вход в личный кабинет</h1>
-                           <form>
-                                <input type="email" name = 'login' placeholder="Почта или телефон"/>
-                                <input type="password" name = 'password' placeholder="Пароль"/>
-                                <button onClick={()=>handleSubmit()}>
-                                    Get Users
-                                </button>
-                           </form>
+                            <h1>Вход в личный кабинет</h1>
+                            <form>
+                                <input type="email" name='login' placeholder="Почта или телефон" />
+                                <input type="password" name='password' placeholder="Пароль" />
+
+                            </form>
+                            <button onClick={() => handleSubmit()}>
+                                Get Users
+                            </button>
                         </Modal>
                     </>
                 </div>

@@ -10,6 +10,7 @@ import { openModal } from "../../../../redux/slices/modalSlice";
 
 const Intro = () => {
     const dispatch = useAppDispatch()
+
     return (
         <section className={styles.intro_wrapper}>
             <div className={styles.background_wrapper}>
@@ -26,11 +27,11 @@ const Intro = () => {
                 <h2 className={styles.h2}>
                     Курсы, разработанные с учетом потребностей в реалиях 21 века
                 </h2>
-                <button className={styles.button} onClick={()=>{dispatch(openModal())}}>
+                <button className={styles.button} onClick={() => { dispatch(openModal()) }}>
                     Записаться  <span> на пробное занятие</span>
                 </button>
                 <div className={styles.sliding_arrow}>
-                    <Image src={sliding_arrow} alt="Стрелка вниз"/>
+                    <Image src={sliding_arrow} alt="Стрелка вниз" />
                 </div>
             </div>
 

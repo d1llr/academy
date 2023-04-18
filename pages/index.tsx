@@ -30,6 +30,6 @@ const Index = () => {
 };
 export default Index;
 
-export const getStaticProps: GetStaticProps = wrapper.getStaticProps((store) => async (ctx) =>{
+export const getServerSideProps: GetServerSideProps = wrapper.getServerSideProps((store) => async (ctx) =>{
     return {props: {}}
 })

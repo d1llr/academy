@@ -1,9 +1,10 @@
 import { FC } from "react";
 import styles from './Teachers.module.scss'
 import { useRouter } from "next/router";
-import { useAppSelector } from "../../redux/store";
+import { useAppDispatch, useAppSelector } from "../../redux/store";
 import Image from "next/image";
 import actorIcon from '../../public/imgs/icons/actor_icon.png'
+import { openModal } from "../../redux/slices/modalSlice";
 
 
 const Teacher: FC<any> = () => {
@@ -12,7 +13,7 @@ const Teacher: FC<any> = () => {
 
 
     const teacher = useAppSelector((state) => state.teacher.find(item => { return item.id == Number(id) }))
-
+    const dispatch = useAppDispatch()
 
     return (
         teacher ?
@@ -59,7 +60,7 @@ const Teacher: FC<any> = () => {
                         })}
                     </div>
                     <div className={styles.buttons_wrapper}>
-                        <button >
+                        <button onClick={()=>dispatch(openModal(true))}>
                             Записаться на курс
                         </button>
                         <span>

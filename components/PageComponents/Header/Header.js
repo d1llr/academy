@@ -85,22 +85,21 @@ const Header = () => {
                     </Link>
                     <>
                         <Modal
-                            title="Вход"
+                            title="В разработке/ in development"
                             open={isModalOpen}
                             onOk={handleOk}
                             onCancel={handleCancel}
                             footer={null}
                             con={styles.modal_container}
                         >
-                            <h1>Вход в личный кабинет</h1>
-                            <form>
+                            {/* <form>
                                 <input type="email" name='login' placeholder="Почта или телефон" />
                                 <input type="password" name='password' placeholder="Пароль" />
 
                             </form>
                             <button onClick={() => handleSubmit()}>
                                 Get Users
-                            </button>
+                            </button> */}
                         </Modal>
                     </>
                 </div>

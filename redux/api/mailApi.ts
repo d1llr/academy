@@ -13,8 +13,10 @@ export const mailApi = createApi({
   reducerPath: 'mailApi',
   baseQuery: fetchBaseQuery({ baseUrl: '/assets/contacts.js' }),
   endpoints: (build) => ({
-    sendEmail: build.query<mail, void>({
-      query: ()=>'get',
+    sendEmail: build.query<mail, mail>({
+      query: ()=>{
+        
+      },
     }),
   }),
 })

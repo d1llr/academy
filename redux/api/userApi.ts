@@ -4,10 +4,10 @@ import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
 // Define a service using a base URL and expected endpoints
 export const userApi = createApi({
   reducerPath: 'userApi',
-  baseQuery: fetchBaseQuery({ baseUrl: 'https://localhost:8000/' }),
+  baseQuery: fetchBaseQuery({ baseUrl: 'http://localhost:8000/api/' }),
   endpoints: (builder) => ({
-    getUser: builder.query<string, number>({
-      query: (limit = 5) => `/users?limit=${limit}`,
+    getUser: builder.query<string, any>({
+      query: () => `/users/`,
     })
   }),
 })

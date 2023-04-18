@@ -8,7 +8,7 @@ import Banner from '../components/PageComponents/Main/Banner/Banner';
 import Questions from '../components/PageComponents/Main/Questions/Questions';
 import FeedBack from '../components/PageComponents/Main/FeedBack/FeedBack';
 import store, { wrapper } from '../redux/store';
-import { GetServerSideProps } from 'next';
+import { GetServerSideProps, GetStaticProps } from 'next';
 
 
 
@@ -30,6 +30,6 @@ const Index = () => {
 };
 export default Index;
 
-export const getServerSideProps: GetServerSideProps = wrapper.getServerSideProps((store) => async (ctx) =>{
+export const getStaticProps: GetStaticProps = wrapper.getStaticProps((store) => async (ctx) =>{
     return {props: {}}
 })

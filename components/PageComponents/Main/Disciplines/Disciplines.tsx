@@ -31,7 +31,6 @@ const Disciplines = () => {
     }
 
     const disciplines = useAppSelector((state) => state.disciplines)
-    console.log(disciplines);
     return (
         <section className={styles.disciplines} id="disciplines">
             <h1 className={styles.h1}>Наши дисциплины</h1>

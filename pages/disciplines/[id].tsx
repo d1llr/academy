@@ -17,15 +17,6 @@ const Disciplines: FC = () => {
         return (item.disciplines.map(i => i.name).includes(disciplines?.type))
     }))
 
-    console.log(disciplines);
-    
-
-    teacher.length != 0 ?
-        console.log('teacher')
-        :
-        console.log('teacher false');
-
-
 
     return (
         disciplines ?

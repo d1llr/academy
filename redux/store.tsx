@@ -1,4 +1,4 @@
-import { configureStore, ThunkAction, Action } from '@reduxjs/toolkit'
+import { configureStore, ThunkAction, Action, getDefaultMiddleware } from '@reduxjs/toolkit'
 import { combineReducers } from 'redux'
 import {createWrapper} from 'next-redux-wrapper';
 import { TypedUseSelectorHook, useDispatch, useSelector } from 'react-redux'
@@ -6,6 +6,8 @@ import teacherSlice from './slices/teacherSlice'
 import LargeTeacherSlice from './slices/LargeTeacherSlice'
 import disciplinesSlice from './slices/disciplinesSlice';
 import modalSlice from './slices/modalSlice';
+import { mailApi } from './api/mailApi';
+import { userApi } from './api/userApi';
 
 
 const makeStore = () =>
@@ -14,8 +16,11 @@ const makeStore = () =>
         teacher: teacherSlice,
         teacherLarge : LargeTeacherSlice,
         disciplines: disciplinesSlice,
-        modal: modalSlice
+        modal: modalSlice,
+        [mailApi.reducerPath]: mailApi.reducer,
+        [userApi.reducerPath]: userApi.reducer
     },
+    middleware: getDefaultMiddleware => getDefaultMiddleware().concat(mailApi.middleware),
     devTools: true,
   });
 

@@ -3,7 +3,6 @@ import { useEffect } from "react";
 import { memo } from "react";
 
 const IntroBackGround = memo(({height, width}) => {
-    console.log('height', height);
     
     let colorArray = [
         "pink",
@@ -37,7 +36,6 @@ const IntroBackGround = memo(({height, width}) => {
                 }
             }).seek(10)
         });
-        console.log('effected');
         
         mm.add("(orientation: landscape) and (prefers-reduced-motion: no-preference)", (context) => {
             gsap.fromTo(".speedLines line", {

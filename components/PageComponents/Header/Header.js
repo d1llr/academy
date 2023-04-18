@@ -3,8 +3,9 @@ import Image from "next/image";
 import { styles, aboutpng, disc, teachers, answers, callback, logotype, login } from './imports'
 import { useEffect, useState } from "react";
 import { Button, Modal } from 'antd';
-const Header = () => {
+import useGetUserQuery from '../../../redux/api/userApi'
 
+const Header = () => {
     const [isModalOpen, setIsModalOpen] = useState(false);
     // useEffect(()=>{
     //   switch (switcher) {
@@ -30,6 +31,11 @@ const Header = () => {
     const handleCancel = () => {
         setIsModalOpen(false);
     };
+
+    const handleSubmit = () =>{
+        const {data, error, loading} = useGetUserQuery()
+        console.log(data);
+    }
     return (
         <header className={styles.page_header}>
             <nav>
@@ -93,7 +99,9 @@ const Header = () => {
                            <form>
                                 <input type="email" name = 'login' placeholder="Почта или телефон"/>
                                 <input type="password" name = 'password' placeholder="Пароль"/>
-
+                                <button onClick={()=>handleSubmit()}>
+                                    Get Users
+                                </button>
                            </form>
                         </Modal>
                     </>

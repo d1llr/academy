@@ -1,6 +1,5 @@
-// module.exports = {
-//     images: {
-//       loader: '',
-//       path: '',
-//     },
-//   }
+module.exports = {
+    images: {
+        unoptimized: true
+    }
+}

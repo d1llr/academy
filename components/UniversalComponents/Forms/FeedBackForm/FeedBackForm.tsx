@@ -1,6 +1,7 @@
 import React from 'react';
 import { useForm, Resolver } from 'react-hook-form';
 import styles from './styles.module.scss'
+import { useGetUserQuery } from '../../../../redux/api/userApi';
 
 
 type FormValues = {
@@ -9,6 +10,8 @@ type FormValues = {
   comments: string;
 };
 
+
+useGetUserQuery
 const resolver: Resolver<FormValues> = async (values) => {
   return {
     values: values.firstName ? values : {},
@@ -25,13 +28,16 @@ const resolver: Resolver<FormValues> = async (values) => {
 
 export default function App() {
   const { register, handleSubmit, formState: { errors } } = useForm<FormValues>({ resolver });
-  const onSubmit = handleSubmit((data) => {
+
+  const onSubmit = handleSubmit(async (data:FormValues) => {
     fetch('/api/contacts', {
       method: 'post',
-      body: JSON.stringify(data),
+      body: JSON.stringify(data)
     });
+    
   }
   );
+
 
   return (
     <form onSubmit={onSubmit} className={styles.form}>

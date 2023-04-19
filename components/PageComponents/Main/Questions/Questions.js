@@ -38,7 +38,6 @@ const Questions = () => {
                 {data.map(item => {
                     return <Item answer={item.answer} question = {item.question}/>
                 })}
-
             </div>
         </section>
     );

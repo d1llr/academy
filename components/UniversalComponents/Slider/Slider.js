@@ -16,7 +16,7 @@ export default ({children}) => {
   })
 
   return (
-    <section>
+    <div>
       <div className="navigation_wrapper">
         <div ref={sliderRef} className="keen-slider">
          {children}
@@ -60,7 +60,7 @@ export default ({children}) => {
           })}
         </div>
       )}
-    </section>
+    </div>
   )
 }
 

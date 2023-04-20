@@ -18,7 +18,7 @@ const resolver: Resolver<FormValues> = async (values) => {
       ? {
         first_name: {
           type: 'required',
-          message: 'This is required.',
+          message: 'Обязательное поле',
         },
       }
       : {},

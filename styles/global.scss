@@ -47,7 +47,7 @@ main {
 
   section {
     max-width: 1800px;
-    padding: 0 3vw;
+    padding: 0 5vw;
     margin-bottom: 100px;
     margin-left: auto;
     margin-right: auto;
@@ -247,6 +247,14 @@ main {
   main {
     section {
       margin-bottom: 80px !important;
+    }
+  }
+}
+
+@media (max-width:5000px) {
+  main {
+    section {
+      margin-bottom: 40px !important;
     }
   }
 }

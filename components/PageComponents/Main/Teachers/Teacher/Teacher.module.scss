@@ -52,6 +52,7 @@
 @media(max-width:555px) {
     #teacher_wrapper{
         font-size: 90vw;
+        width: 350px !important;
         padding: .1em;
         h2{
             font-size: calc(1px + 5vw) !important;

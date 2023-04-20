@@ -22,7 +22,7 @@ const Intro = () => {
 
             <div className={styles.intro_text_container}>
                 <h1 className={styles.h1}>
-                    Академия Француз
+                   АКАДЕМИЯ «ФРАНЦУЗ»
                 </h1>
                 <h2 className={styles.h2}>
                     Курсы, разработанные с учетом потребностей в реалиях 21 века

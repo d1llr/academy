@@ -30,6 +30,7 @@ const ModalFeedBack: React.FC = () => {
         onCancel={handleCancel}
         className={styles.modal_container}
         footer={null}
+        destroyOnClose = {true}
     >
         <FeedBackForm />
     </Modal>

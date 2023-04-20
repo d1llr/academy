@@ -15,6 +15,7 @@ const Teacher: FC<any> = () => {
     const teacher = useAppSelector((state) => state.teacher.find(item => { return item.id == Number(id) }))
     const dispatch = useAppDispatch()
 
+    ///
     return (
         teacher ?
             <main className={styles.teachers_wrapper}>

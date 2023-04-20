@@ -161,6 +161,12 @@ main {
   cursor: pointer;
 }
 
+@media (max-width:500px){
+  .arrow{
+    display: none;
+  }
+}
+
 .arrow--left {
   left: -2.5em;
 }

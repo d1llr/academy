@@ -8,7 +8,8 @@
     "build": "next build",
     "start": "next start",
     "export": "next export",
-    "lint": "next lint"
+    "lint": "next lint",
+    "cypress": "cypress open"
   },
   "keywords": [],
   "author": "",
@@ -32,6 +33,7 @@
     "react-phone-input-2": "^2.15.1",
     "react-player": "^2.12.0",
     "react-redux": "^8.0.5",
+    "react-scroll": "^1.8.9",
     "redux": "^4.2.1",
     "saas": "^1.0.0",
     "sass": "^1.59.2",

@@ -3,7 +3,6 @@ import styles from './Intro.module.scss';
 // import introBackground from '../../../../imgs/main/intro-bg.jpg';
 import IntroBackGround from "../../../UniversalComponents/IntroBackGround/IntroBackGround";
 import sliding_arrow from '../../../../public/imgs/main/sliding_arrow.png';
-import ModalFeedBack from "../../../UniversalComponents/ModalFeedBack/ModalFeedBack";
 import { useAppDispatch } from "../../../../redux/store";
 import { openModal } from "../../../../redux/slices/modalSlice";
 

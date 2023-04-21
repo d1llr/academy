@@ -44,7 +44,7 @@ export default function App() {
 
   const [value, setValue] = useState('')
   const { register, handleSubmit, formState: { errors } } = useForm<FormValues>({ resolver });
-  const [sendEmail, { isLoading, isSuccess, isError }] = useSendEmailMutation()
+  const [sendEmail, { isLoading, isSuccess, isError, status }] = useSendEmailMutation()
   const onSubmit = handleSubmit(async (data: FormValues) => {
     data.phone = await phoneForBackend(data.phone)
     await sendEmail({
@@ -66,28 +66,29 @@ export default function App() {
       <InputMask
         mask="+7(999)999-99-99"
         maskChar="_"
-        alwaysShowMask {...register("phone")}
+        alwaysShowMask
+        {...register("phone")}
       // beforeMaskedValueChange={beforeMaskedValueChange}
       />
       {errors?.phone && <p>{errors.phone.message}</p>}
       <textarea {...register("description")} placeholder="Комментарий" />
       {
-        isLoading ?
-          <div className={styles.loading}>
-            <Spinner/>
-          </div>
-          :
-          isSuccess ?
-            <div className={styles.success}>
-              Успешно
-            </div>
-            : isError ?
-              <div className={styles.error}>
-                Ошибка
-              </div>
-              :
-              <input type="submit" value={'Отправить'} className={styles.submit} />
+        isLoading &&
+        <div className={styles.loading}>
+          <Spinner />
+        </div>
       }
+      {isSuccess &&
+        <div className={styles.success}>
+          Успешно
+        </div>
+      }
+      {isError &&
+        <div className={styles.error}>
+          Ошибка
+        </div>
+      }
+      {status === 'uninitialized' && <input type="submit" value={'Отправить'} className={styles.submit} />}
 
     </form>
   );

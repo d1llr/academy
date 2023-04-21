@@ -44,7 +44,7 @@ const Teachers = () => {
     
 
     return (
-        <section className={styles.teachers_container}>
+        <section className={styles.teachers_container} id='teachers'>
             <H1 text={'Наши преподаватели'} />
             <h1 className={styles.mobileL}>Преподаватели</h1>
             <TeacherSlider>

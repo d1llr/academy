@@ -2,8 +2,9 @@ import React, { useState } from 'react';
 import { useForm, Resolver } from 'react-hook-form';
 import styles from './styles.module.scss'
 import { useSendEmailMutation } from '../../../../redux/api/mailApi';
-import Spinner from '../../spinner/spinner';
+
 import InputMask from 'react-input-mask'
+import Spinner from '../../spinner/Spinner';
 
 type FormValues = {
   first_name: string;
@@ -73,7 +74,7 @@ export default function App() {
       {
         isLoading ?
           <div className={styles.loading}>
-            <Spinner />
+            <Spinner/>
           </div>
           :
           isSuccess ?

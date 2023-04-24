@@ -7,9 +7,11 @@ import { useAppDispatch } from '../../../redux/store'
 
 import { openModal } from "../../../redux/slices/modalSlice";
 import LoginForm from "../../UniversalComponents/Forms/LoginForm/LoginForm";
+import UniverseModal from "../../UniversalComponents/UniverseModal/UniverseModal";
+import RegisterForm from "../../UniversalComponents/Forms/RegisterForm/RegisterForm";
 const Header = () => {
     const [isModalOpen, setIsModalOpen] = useState(false);
-
+    const [isModalRegistrationOpen, setIsModalRegistrationOpen] = useState(false);
     const dispatch = useAppDispatch()
 
     const handleScroll = (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
@@ -38,6 +40,16 @@ const Header = () => {
         setIsModalOpen(false);
     };
 
+
+    const handleRegister = () => {
+        handleCancel()
+        setIsModalRegistrationOpen(true)
+    }
+
+    const handleLogin = () => {
+        setIsModalRegistrationOpen(false)
+        setIsModalOpen(true);
+    }
     return (
         <header className={styles.page_header}>
             <nav>
@@ -92,12 +104,22 @@ const Header = () => {
                         <Modal
                             title="Вход в личный кабинет"
                             open={isModalOpen}
-                            onOk={handleOk}
                             onCancel={handleCancel}
                             footer={null}
-
+                            destroyOnClose={true}
                         >
-                            <LoginForm/>
+                            <LoginForm props={handleRegister} />
+                        </Modal>
+                    </>
+                    <>
+                        <Modal
+                            title="Регистрация"
+                            open={isModalRegistrationOpen}
+                            onCancel={handleCancel}
+                            footer={null}
+                            destroyOnClose={true}
+                        >
+                            <RegisterForm props={handleLogin} />
 
                         </Modal>
                     </>

@@ -26,7 +26,7 @@ const UniverseModal: React.FC<props> = ({title}:props) => {
     };
 
     const handleCancel = () => {
-        dispatch(closeModal(true))
+        dispatch(closeModal(false))
     };
 
     return <Modal

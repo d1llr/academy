@@ -26,7 +26,8 @@ const handleChange = (e) => {
 
 
 
-export default function LoginForm() {
+
+export default function LoginForm({ props }) {
     const [phase, setPhase] = useState('phone')
     const { register, handleSubmit } = useForm<FormValuesEmail | FormValuesPhone>();
     const onSubmit: SubmitHandler<FormValuesEmail | FormValuesPhone> = data => console.log(data);
@@ -45,35 +46,87 @@ export default function LoginForm() {
                 <div className={styles.form_container}>
                     <form onSubmit={handleSubmit(onSubmit)}>
                         <input
+                            type='email'
                             {...register("email")}
                             onChange={e => handleChange(e.target.value)}
-                            placeholder='EMAIL'
+                            placeholder='Почта'
+                            required
                         />
-                        <input {...register("password")} />
+                        <input
+                            type='password'
+                            {...register("password")}
+                            placeholder='Пароль'
+                            autoComplete="current-password"
+                            required
+                        />
 
-                        <input type="submit" />
-                    </form>
-                </div>
-                :
-                <div className={styles.form_container}>
-                    <form onSubmit={handleSubmit(onSubmit)}>
-                        <InputMask
-                            mask="+7(999) 999-99-99"
-                            maskChar="_"
-                            placeholder = 'Номер'
-                            {...register("phone")} />
-                        <input {...register("password")} placeholder='Пароль' />
                         <input type="submit" value='Войти' className={styles.submit} />
                         <div className={styles.register}>
                             <span className={styles.text}>
                                 Еще нет аккаунта?
                             </span>
-                            <span className={styles.register_action}>
+                            <span className={styles.register_action} onClick={props}>
                                 Зарегистрируйтесь!
                             </span>
                         </div>
                     </form>
-                </div>}
+                </div>
+                :
+                phase === 'phone' ?
+                    <div className={styles.form_container}>
+                        <form onSubmit={handleSubmit(onSubmit)}>
+                            <InputMask
+                                type='phone'
+                                mask="+7(999) 999-99-99"
+                                maskChar="_"
+                                placeholder='Номер'
+                                {...register("phone")} />
+                            <input
+                                type='password'
+                                {...register("password")}
+                                placeholder='Пароль'
+                                autoComplete="current-password"
+                                required
+                            />
+                            <input type="submit" value='Войти' className={styles.submit} />
+                            <div className={styles.register}>
+                                <span className={styles.text}>
+                                    Еще нет аккаунта?
+                                </span>
+                                <span className={styles.register_action} onClick={props}>
+                                    Зарегистрируйтесь!
+                                </span>
+                            </div>
+                        </form>
+                    </div>
+                    :
+                    <div className={styles.registration_container}>
+                        <form onSubmit={handleSubmit(onSubmit)}>
+                            <InputMask
+                                type='phone'
+                                mask="+7(999) 999-99-99"
+                                maskChar="_"
+                                placeholder='Номер'
+                                {...register("phone")} />
+                            <input
+                                type='password'
+                                {...register("password")}
+                                placeholder='Пароль'
+                                autoComplete="current-password"
+                                required
+                            />
+                            <input type="submit" value='Войти' className={styles.submit} />
+                            <div className={styles.register}>
+                                <span className={styles.text}>
+                                    Еще нет аккаунта?
+                                </span>
+                                <span className={styles.register_action} onClick={props}>
+                                    Зарегистрируйтесь!
+                                </span>
+                            </div>
+                        </form>
+                    </div>
+            }
         </>);
 
 }

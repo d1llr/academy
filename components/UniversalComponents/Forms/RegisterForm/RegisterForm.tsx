@@ -2,22 +2,21 @@ import React, { useState } from 'react';
 import { useForm, SubmitHandler } from 'react-hook-form';
 import styles from './styles.module.scss'
 import InputMask from 'react-input-mask'
+import { IUser, useGetUserregisterMutation } from '../../../../redux/api/RegisterApi';
+import { phoneForBackend } from '../FeedBackForm/FeedBackForm';
+import Input from 'antd/es/input/Input';
+import Spinner from '../../spinner/Spinner';
 
 
-type FormValuesEmail = {
+type FormValues = {
     email: string;
     password: string;
+    phone: string,
+    last_name: string,
+    first_name: string,
+    re_password: string
 };
 
-type FormValuesPhone = {
-    phone: string;
-    password: string;
-};
-
-interface IData {
-    type: string,
-    value: string,
-}
 
 
 const handleChange = (e) => {
@@ -28,8 +27,19 @@ const handleChange = (e) => {
 
 
 export default function RegisterForm({ props }) {
-    const { register, handleSubmit } = useForm<FormValuesEmail | FormValuesPhone>();
-    const onSubmit: SubmitHandler<FormValuesEmail | FormValuesPhone> = data => console.log(data);
+    const { register, handleSubmit } = useForm<IUser>();
+
+
+    const [regUser, { isLoading, isSuccess, isError, status }] = useGetUserregisterMutation()
+    const onSubmit: SubmitHandler<IUser> = async (data) => {
+        data.phone = await phoneForBackend(data.phone)
+        console.log(data);
+        
+        await regUser(
+            data
+        )
+    }
+
 
     return (
         <>
@@ -39,8 +49,7 @@ export default function RegisterForm({ props }) {
                         <div className={styles.block}>
                             <input
                                 type='email'
-                                {...register("email")}
-                                onChange={e => handleChange(e.target.value)}
+                                {...register("email")} 
                                 placeholder='Почта'
                                 required
                             />
@@ -48,12 +57,12 @@ export default function RegisterForm({ props }) {
                                 type='password'
                                 {...register("password")}
                                 placeholder='Пароль'
-                                autoComplete="current-password"
+                                autoComplete="no"
                                 required
                             />
                             <input
                                 type='password'
-                                {...register("password")}
+                                {...register("re_password")}
                                 placeholder='Повторите пароль'
                                 autoComplete="no"
                                 required
@@ -62,31 +71,42 @@ export default function RegisterForm({ props }) {
                         <div className={styles.block}>
                             <input
                                 type='name'
-                                {...register("email")}
-                                onChange={e => handleChange(e.target.value)}
+                                {...register("first_name")}
                                 placeholder='Имя'
                                 required
                             />
                             <input
                                 type='last_name'
-                                {...register("email")}
-                                onChange={e => handleChange(e.target.value)}
+                                {...register("last_name")}
                                 placeholder='Фамилия'
                                 required
                             />
-                            <input
+                            <InputMask
+                                mask="+7(999)999-99-99"
+                                maskChar="_"
+                                alwaysShowMask
                                 type='tel'
-                                {...register("password")}
-                                placeholder='Телефон'
-                                autoComplete="on"
-                                required
+                                {...register('phone')}
                             />
                         </div>
                     </div>
-
-
-
-                    <input type="submit" value='Зарегистрироваться' className={styles.submit} />
+                    {
+                        isLoading &&
+                        <div className={styles.loading}>
+                            <Spinner />
+                        </div>
+                    }
+                    {isSuccess &&
+                        <div className={styles.success}>
+                            Проверьте почту
+                        </div>
+                    }
+                    {isError &&
+                        <div className={styles.error}>
+                            Ошибка
+                        </div>
+                    }
+                    {status === 'uninitialized' && <input type="submit" value={'Зарегистрироваться'} className={styles.submit} />}
                     <div className={styles.register}>
                         <span className={styles.text}>
                             Есть аккаунт?

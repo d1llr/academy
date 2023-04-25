@@ -13,8 +13,8 @@ export const mailApi = createApi({
     reducerPath: 'mailApi',
     baseQuery: fetchBaseQuery({ baseUrl: 'http://37.140.195.3:8000/api' }),
     endpoints: (build) => ({
-        sendEmail: build.mutation<mail, {id: number, data: mail }>({
-            query: ({id, data}) => ({
+        sendEmail: build.mutation<mail, {data: mail }>({
+            query: ({data}) => ({
                 url: 'send-email/',
                 method: 'POST',
                 body: data

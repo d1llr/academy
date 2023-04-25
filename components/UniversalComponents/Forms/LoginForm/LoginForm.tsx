@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { useForm, SubmitHandler } from 'react-hook-form';
 import styles from './styles.module.scss'
 import InputMask from 'react-input-mask'
+import { phoneForBackend } from '../FeedBackForm/FeedBackForm';
+import { useGetUserByPhoneMutation } from '../../../../redux/api/loginApi';
 
 
 type FormValuesEmail = {
@@ -29,8 +31,24 @@ const handleChange = (e) => {
 
 export default function LoginForm({ props }) {
     const [phase, setPhase] = useState('phone')
+
+    const [getUser, { isLoading, isSuccess, isError, status }] = useGetUserByPhoneMutation()
     const { register, handleSubmit } = useForm<FormValuesEmail | FormValuesPhone>();
-    const onSubmit: SubmitHandler<FormValuesEmail | FormValuesPhone> = data => console.log(data);
+    const onSubmitPhone: SubmitHandler<FormValuesPhone> = async (data) => {
+        data.phone = await phoneForBackend(data.phone)
+        await getUser({
+            phone: data.phone,
+            password: data.password
+        })
+    };
+
+    const onSubmitEmail: SubmitHandler<FormValuesPhone> = async (data) => {
+        data.phone = await phoneForBackend(data.phone)
+        await getUser({
+            phone: data.phone,
+            password: data.password
+        })
+    };
 
     return (
         <>
@@ -44,7 +62,7 @@ export default function LoginForm({ props }) {
             </ul>
             {phase === 'email' ?
                 <div className={styles.form_container}>
-                    <form onSubmit={handleSubmit(onSubmit)}>
+                    <form onSubmit={handleSubmit(onSubmitEmail)}>
                         <input
                             type='email'
                             {...register("email")}
@@ -74,10 +92,10 @@ export default function LoginForm({ props }) {
                 :
                 phase === 'phone' ?
                     <div className={styles.form_container}>
-                        <form onSubmit={handleSubmit(onSubmit)}>
+                        <form onSubmit={handleSubmit(onSubmitPhone)}>
                             <InputMask
                                 type='phone'
-                                mask="+7(999) 999-99-99"
+                                mask="+7(999)999-99-99"
                                 maskChar="_"
                                 placeholder='Номер'
                                 {...register("phone")} />

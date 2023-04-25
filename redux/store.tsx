@@ -9,6 +9,7 @@ import modalSlice from './slices/modalSlice';
 import { mailApi } from './api/mailApi';
 import { loginApi } from './api/loginApi';
 import { setupListeners } from '@reduxjs/toolkit/dist/query';
+import { registerApi } from './api/RegisterApi';
 
 const makeStore = () =>
   configureStore({
@@ -18,9 +19,10 @@ const makeStore = () =>
         disciplines: disciplinesSlice,
         modal: modalSlice,
         [mailApi.reducerPath]: mailApi.reducer,
-        [loginApi.reducerPath] : loginApi.reducer
+        [loginApi.reducerPath] : loginApi.reducer,
+        [registerApi.reducerPath] : registerApi.reducer
     },
-    middleware: getDefaultMiddleware => getDefaultMiddleware().concat(loginApi.middleware, mailApi.middleware),
+    middleware: getDefaultMiddleware => getDefaultMiddleware().concat(loginApi.middleware, mailApi.middleware,registerApi.middleware),
     devTools: true,
   });
 

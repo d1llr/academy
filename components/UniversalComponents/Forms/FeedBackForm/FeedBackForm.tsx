@@ -31,7 +31,7 @@ const resolver: Resolver<FormValues> = async (values) => {
   };
 };
 
-const phoneForBackend = async (phone: string) => {
+export const phoneForBackend = async (phone: string) => {
   ['(', ')', '-', '-'].map(item => {
     phone = phone.replace(item, '')
   })
@@ -48,7 +48,6 @@ export default function App() {
   const onSubmit = handleSubmit(async (data: FormValues) => {
     data.phone = await phoneForBackend(data.phone)
     await sendEmail({
-      id: 1,
       data: data
     })
   }
